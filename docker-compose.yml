@@ -2,6 +2,7 @@ version: '3'
 
 services:
   web:
+    container_name: Breizhsport-Produit
     build:
       context: .
       dockerfile: Dockerfile
@@ -9,8 +10,11 @@ services:
       - "3002:3002"
     volumes:
       - .:/app
+    networks:
+      - breizhsport-network
   
   mysql:
+    container_name: Base-mysql
     image: mysql:latest
     restart: always
     environment:
@@ -20,3 +24,9 @@ services:
       - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "3306:3306"
+    networks:
+      - breizhsport-network
+
+networks:
+  breizhsport-network:
+    driver: bridge
