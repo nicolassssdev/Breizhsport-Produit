@@ -21,7 +21,7 @@ class ProduitController {
       return res.status(422).json({ errors: errors.array() })
     }
 
-    const { name, description, prix, stock, marque } = req.body
+    const { name, description, prix, stock, marque, image } = req.body
 
     try {
       const createdProduit = new Produit({
