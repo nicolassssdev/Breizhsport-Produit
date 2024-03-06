@@ -1,52 +1,39 @@
--- MySQL dump 10.13  Distrib 8.0.35, for Linux (x86_64)
--- ...
--- (Autres commandes inchangées)
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `produit`
+-- Table structure for table `Produits`
 --
 
 DROP TABLE IF EXISTS `Produits`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Produits` (
-  `produit_id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `produit_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
   `prix` decimal(10,2) DEFAULT NULL,
-  `stock` int DEFAULT NULL,
-  `marque` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `stock` int(11) DEFAULT NULL,
+  `marque` varchar(100) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`produit_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `produit`
+-- Dumping data for table `Produits`
 --
 
--- Aucun verrouillage nécessaire
-
---
--- Table structure for table `utilisateur`
---
-
--- DROP TABLE IF EXISTS `Utilisateurs`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Utilisateurs` (
-  `user_id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `hash_password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `is_confirmed` tinyint(1) NOT NULL,
-  `picture_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `role` int DEFAULT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `utilisateur`
---
-
--- Aucun verrouillage nécessaire
--- ...
--- (Autres commandes inchangées)
+LOCK TABLES `Produits` WRITE;
+/*!40000 ALTER TABLE `Produits` DISABLE KEYS */;
+INSERT INTO `Produits` VALUES (1,'Sweat bildoun','Le nouveau sweet de la collection bildoun',12.00,32,'Adidas',NULL);
+/*!40000 ALTER TABLE `Produits` ENABLE KEYS */;
+UNLOCK TABLES;
